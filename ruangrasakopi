@@ -1,0 +1,790 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruang Rasa | Good Coffee, Better Mood</title>
+<meta name="description" content="Ruang Rasa - Nikmati kopi berkualitas dan temukan mood terbaikmu.">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --brown: #482719;
+    --dark: #30190f;
+    --cream: #faf6ef;
+    --beige: #ead9c6;
+    --text: #755b49;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--cream);
+    color: var(--brown);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* NAVBAR */
+
+header {
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px #30190f10;
+}
+
+nav {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo small {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav ul a {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+nav ul a:hover {
+    color: #ad7955;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--brown);
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #805037;
+    transform: translateY(-3px);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 25px;
+    color: var(--brown);
+    cursor: pointer;
+}
+
+/* HERO */
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    padding-top: 65px;
+    padding-bottom: 75px;
+}
+
+.subtitle {
+    color: #a07856;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(45px, 6vw, 75px);
+    line-height: 1.08;
+    margin: 25px 0;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #a16c4a;
+    font-style: italic;
+}
+
+.hero p {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.9;
+    max-width: 450px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--brown);
+    border: 1px solid var(--brown);
+}
+
+.hero-image {
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 180px 180px 5px 5px;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-caption {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 25px;
+    text-shadow: 0 2px 8px #000;
+}
+
+/* MARQUEE */
+
+.marquee {
+    background: var(--brown);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Georgia, serif;
+    letter-spacing: 3px;
+    font-size: 14px;
+}
+
+/* SECTION */
+
+section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin: 15px 0;
+}
+
+.section-title p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ABOUT */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.about img {
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 5px 100px 5px 5px;
+}
+
+.about h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin: 20px 0;
+}
+
+.about p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 15px;
+}
+
+/* MENU */
+
+.menu-section {
+    background: #f0e6d9;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.menu-card {
+    background: var(--cream);
+    overflow: hidden;
+    transition: .3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px #48271920;
+}
+
+.menu-card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.menu-content {
+    padding: 25px;
+}
+
+.menu-content small {
+    color: #a07856;
+    letter-spacing: 2px;
+}
+
+.menu-content h3 {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    margin: 12px 0;
+}
+
+.menu-content p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+/* BENEFITS */
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.benefit {
+    text-align: center;
+    padding: 25px;
+}
+
+.benefit .icon {
+    font-size: 35px;
+    background: var(--beige);
+    width: 75px;
+    height: 75px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.benefit h3 {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.benefit p {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* CTA */
+
+.cta {
+    background: var(--brown);
+    color: white;
+    text-align: center;
+    padding: 75px 25px;
+    border-radius: 5px;
+}
+
+.cta h2 {
+    font-family: Georgia, serif;
+    font-size: 45px;
+    margin: 20px auto;
+    max-width: 700px;
+}
+
+.cta p {
+    color: #e5cdb8;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.cta .btn {
+    background: var(--cream);
+    color: var(--brown);
+}
+
+/* CONTACT */
+
+.contact {
+    text-align: center;
+}
+
+.contact h2 {
+    font-family: Georgia, serif;
+    font-size: 42px;
+    margin: 20px 0;
+}
+
+.contact p {
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 50px 0 25px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 35px;
+}
+
+footer h3 {
+    font-family: Georgia, serif;
+    margin-bottom: 18px;
+}
+
+footer p, footer a {
+    font-size: 13px;
+    color: #d2bba7;
+    line-height: 2.2;
+}
+
+.copyright {
+    border-top: 1px solid #634634;
+    padding-top: 20px;
+    font-size: 11px;
+    color: #c4a991;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--cream);
+        flex-direction: column;
+        padding: 25px 5%;
+        gap: 22px;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    .nav-btn {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding-top: 45px;
+    }
+
+    .hero-image {
+        height: 400px;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .section-title h2,
+    .about h2,
+    .contact h2 {
+        font-size: 34px;
+    }
+
+    .cta h2 {
+        font-size: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+<div class="container">
+<nav>
+    <a href="#home" class="logo">
+        ☕ Ruang Rasa
+        <small>GOOD COFFEE, BETTER MOOD</small>
+    </a>
+
+    <button class="menu-toggle" id="toggle">☰</button>
+
+    <ul id="navMenu">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#about">Tentang Kami</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#benefits">Keunggulan</a></li>
+        <li><a href="#contact">Kontak</a></li>
+    </ul>
+
+    <a href="https://instagram.com/ruangrasa.id"
+       target="_blank" class="btn nav-btn">Hubungi Kami ↗</a>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<main>
+<div class="container hero" id="home">
+    <div>
+        <div class="subtitle">Selamat Datang di Ruang Rasa</div>
+
+        <h1>
+            Good Coffee,<br>
+            <span>Better Mood.</span>
+        </h1>
+
+        <p>
+            Setiap tegukan punya cerita. Temukan rasa kopi
+            favoritmu, nikmati suasana yang hangat, dan
+            jadikan harimu lebih istimewa bersama Ruang Rasa.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#menu" class="btn">Jelajahi Menu →</a>
+            <a href="#about" class="btn btn-outline">Tentang Kami</a>
+        </div>
+    </div>
+
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1000&q=85"
+             alt="Ilustrasi kopi susu">
+        <div class="image-caption">Rasa yang bikin nyaman.</div>
+    </div>
+</div>
+
+<div class="marquee">
+    ✳ GOOD COFFEE, BETTER MOOD ✳ TEMUKAN RASA FAVORITMU ✳
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container about">
+
+    <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=900&q=85"
+         alt="Ilustrasi suasana kedai kopi">
+
+    <div>
+        <div class="subtitle">Cerita di Balik Setiap Cangkir</div>
+
+        <h2>Lebih dari Sekadar Secangkir Kopi.</h2>
+
+        <p>
+            Ruang Rasa hadir sebagai teman di setiap momen.
+            Kami percaya bahwa kopi yang nikmat bukan hanya
+            tentang rasa, tetapi juga tentang suasana,
+            kenyamanan, dan cerita yang tercipta di dalamnya.
+        </p>
+
+        <p>
+            Dengan karakter hangat, santai, modern, dan ramah,
+            Ruang Rasa ingin menjadi bagian dari keseharian
+            anak muda yang penuh ide dan semangat.
+        </p>
+
+        <a href="#menu" class="btn">Temukan Menu Kami →</a>
+    </div>
+
+</div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+<div class="container">
+
+    <div class="section-title">
+        <div class="subtitle">Temukan Favoritmu</div>
+        <h2>Ruang untuk Setiap Rasa.</h2>
+        <p>
+            Dari kopi yang kaya karakter hingga minuman
+            non-kopi yang menyegarkan.
+        </p>
+    </div>
+
+    <div class="menu-grid">
+
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=700&q=85"
+                 alt="Ilustrasi kopi">
+            <div class="menu-content">
+                <small>01 · COFFEE SERIES</small>
+                <h3>Kopi Favorit</h3>
+                <p>
+                    Nikmati karakter kopi yang kaya rasa,
+                    cocok menemani aktivitas dan momen santaimu.
+                </p>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=85"
+                 alt="Ilustrasi kopi susu">
+            <div class="menu-content">
+                <small>02 · SIGNATURE MOOD</small>
+                <h3>Kopi Susu</h3>
+                <p>
+                    Perpaduan rasa kopi dan kelembutan susu
+                    untuk menemani hari yang lebih menyenangkan.
+                </p>
+            </div>
+        </div>
+
+        <div class="menu-card">
+            <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=85"
+                 alt="Ilustrasi minuman segar">
+            <div class="menu-content">
+                <small>03 · NON COFFEE</small>
+                <h3>Non-Kopi</h3>
+                <p>
+                    Pilihan minuman tanpa kopi untuk kamu
+                    yang ingin menikmati kesegaran berbeda.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits">
+<div class="container">
+
+    <div class="section-title">
+        <div class="subtitle">Mengapa Ruang Rasa?</div>
+        <h2>Hal Sederhana, Rasa Istimewa.</h2>
+        <p>
+            Kami ingin setiap kunjungan membawa pengalaman
+            yang menyenangkan.
+        </p>
+    </div>
+
+    <div class="benefits">
+
+        <div class="benefit">
+            <div class="icon">☕</div>
+            <h3>Bijian Kopi Pilihan</h3>
+            <p>
+                Mengutamakan kualitas dan karakter rasa
+                dalam setiap pengalaman menikmati kopi.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="icon">✧</div>
+            <h3>Rasa Premium</h3>
+            <p>
+                Perpaduan rasa yang dirancang untuk
+                menghadirkan momen minum lebih berkesan.
+            </p>
+        </div>
+
+        <div class="benefit">
+            <div class="icon">☺</div>
+            <h3>Bikin Lebih Produktif</h3>
+            <p>
+                Teman yang pas untuk belajar, bekerja,
+                berkarya, dan menikmati waktu sendiri.
+            </p>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section>
+<div class="container">
+    <div class="cta">
+        <div class="subtitle" style="color:#e4bd9a">
+            A LITTLE CUP OF HAPPINESS
+        </div>
+
+        <h2>Temukan Rasa Favoritmu di Ruang Rasa!</h2>
+
+        <p>
+            Nikmati secangkir kopi berkualitas dengan rasa
+            yang selalu bikin semangat.
+        </p>
+
+        <a href="https://instagram.com/ruangrasa.id"
+           target="_blank" class="btn">
+           Pesan Sekarang ↗
+        </a>
+    </div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container contact">
+    <div class="subtitle">Ikuti Cerita Kami</div>
+
+    <h2>Mari Terhubung, Mari Berbagi Rasa.</h2>
+
+    <p>
+        Jangan lewatkan kabar, inspirasi, dan momen seru
+        dari Ruang Rasa melalui Instagram kami.
+    </p>
+
+    <a href="https://instagram.com/ruangrasa.id"
+       target="_blank" class="btn">
+       Instagram @ruangrasa.id ↗
+    </a>
+</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+<div class="container">
+
+    <div class="footer-content">
+
+        <div>
+            <h3>☕ Ruang Rasa</h3>
+            <p>Good Coffee, Better Mood.</p>
+            <p>
+                Secangkir rasa, sejuta cerita.
+                Teman terbaik untuk setiap suasana.
+            </p>
+        </div>
+
+        <div>
+            <h3>Menu Navigasi</h3>
+            <p><a href="#home">Beranda</a></p>
+            <p><a href="#about">Tentang Kami</a></p>
+            <p><a href="#menu">Menu</a></p>
+        </div>
+
+        <div>
+            <h3>Hubungi Kami</h3>
+            <p>
+                <a href="https://instagram.com/ruangrasa.id"
+                   target="_blank">@ruangrasa.id</a>
+            </p>
+            <p>#RuangRasa</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 Ruang Rasa. All Rights Reserved.
+        <br>
+        Good Coffee, Better Mood.
+    </div>
+
+</div>
+</footer>
+
+<script>
+const toggle = document.getElementById("toggle");
+const navMenu = document.getElementById("navMenu");
+
+toggle.addEventListener("click", function() {
+    navMenu.classList.toggle("active");
+
+    toggle.textContent =
+        navMenu.classList.contains("active") ? "✕" : "☰";
+});
+
+document.querySelectorAll("#navMenu a").forEach(function(link) {
+    link.addEventListener("click", function() {
+        navMenu.classList.remove("active");
+        toggle.textContent = "☰";
+    });
+});
+</script>
+
+</body>
+</html>
